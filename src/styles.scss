@@ -1,1 +1,83 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/theming";
+@include mat-core();
+
+$startaideia-palette: (
+  50: #fce8e9,
+  100: #f7c5c8,
+  200: #f29fa4,
+  300: #ed7880,
+  400: #e95b64,
+  500: #e53e49,
+  600: #e23842,
+  700: #de3039,
+  800: #da2831,
+  900: #d31b21,
+  A100: #ffffff,
+  A200: #ffd4d6,
+  A400: #ffa1a4,
+  A700: #ff888b,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$my-app-primary: mat-palette($startaideia-palette);
+$my-app-accent: mat-palette($mat-gray, 300);
+$my-app-warn: mat-palette($mat-deep-orange);
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+@include angular-material-theme($my-app-theme);
+
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap");
+
+$custom-typography: mat-typography-config(
+  $font-family: '"Ubuntu", "apple-system"',
+);
+@include mat-core($custom-typography);
+
+* {
+  box-sizing: border-box;
+  outline: none !important;
+  font-family: "Ubuntu", "apple-system", sans-serif;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+button {
+  padding: 1px 6px !important;
+  label {
+    margin-left: 6px;
+  }
+}
+button:hover:not([disabled]) {
+  opacity: 0.8;
+}
+
+.mat-dialog-container {
+  padding: 0 !important;
+}
+
+.mat-dialog-content {
+  padding: 0 !important;
+  margin: 0 !important;
+}

@@ -1,0 +1,57 @@
+<div class="container">
+  <app-header></app-header>
+
+  <div id="search">
+    <section class="flex-item">
+      <mat-form-field>
+        <input #search matInput type="search" placeholder="Search" />
+        <mat-icon matPrefix>search</mat-icon>
+      </mat-form-field>
+    </section>
+
+    <section class="flex-item">
+      <mat-checkbox
+        [(ngModel)]="filtredByTag"
+        class="addButton"
+        color="primary"
+        (change)="filtroChange()"
+        >Search in tags only</mat-checkbox
+      >
+    </section>
+
+    <section class="flex-item">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="openDialogNovaFerramenta()"
+      >
+        <mat-icon>add</mat-icon>
+        <label>Add</label>
+      </button>
+    </section>
+  </div>
+
+  <div class="card-container">
+    <section *ngFor="let ferramenta of ferramentas$ | async">
+      <mat-card class="card-item">
+        <div id="card-item-header">
+          <span>{{ ferramenta.title }}</span>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="excluir(ferramenta)"
+          >
+            <mat-icon>delete</mat-icon>
+            <label>remove</label>
+          </button>
+        </div>
+
+        <mat-card-content>
+          <p>{{ ferramenta.description }}</p>
+          <p [innerHTML]="ferramenta.tags | tagsFormat"></p>
+        </mat-card-content>
+      </mat-card>
+    </section>
+  </div>
+</div>
+<app-footer></app-footer>

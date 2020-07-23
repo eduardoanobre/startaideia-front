@@ -1,0 +1,25 @@
+:host {
+  display: block;
+  padding: 50px 20px 20px 20px;
+}
+
+#header {
+  p {
+    font-size: 32px;
+    font-weight: 900;
+  }
+
+  span {
+    word-break: break-word;
+    font-size: 22px;
+    display: block;
+    color: #e53e49;
+  }
+  a {
+    text-decoration: none;
+    color: #d31b21;
+  }
+  a:visited {
+    color: #d31b21;
+  }
+}

@@ -1,0 +1,10 @@
+<div class="container">
+  <app-header></app-header>
+
+  <div class="div-erro" *ngIf="erro$ | async as erro">
+    <mat-card class="mat-card-error">
+      <h4>Página de erro</h4>
+      <p>{{ erro.error }}</p>
+    </mat-card>
+  </div>
+</div>

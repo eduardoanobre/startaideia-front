@@ -1,0 +1,18 @@
+<div class="div-message">
+  <div class="message {{ type }}">
+    <div class="div-icon">
+      <mat-icon *ngIf="type === 'warning'">warning</mat-icon>
+      <mat-icon *ngIf="type === 'error'">error</mat-icon>
+      <mat-icon *ngIf="type === 'info'">info</mat-icon>
+    </div>
+
+    <div>
+      <ul>
+        <li>
+          <b>{{ summary }}</b>
+        </li>
+        <li><ng-content></ng-content></li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="confirm-dialog-header">
+  <span>Remove tool</span>
+  <a (click)="onNoClick()"><mat-icon>close</mat-icon></a>
+</div>
+<div class="confirm-dialog">
+  <div class="confirm-dialog-inner">
+    <div><mat-icon>warning</mat-icon></div>
+    <div class="div-texto">
+      <span>{{ data.message }}</span>
+      <span>{{ data.detail }}</span>
+    </div>
+  </div>
+</div>
+<div class="confirm-dialog-action">
+  <button class="button-no" mat-raised-button (click)="onNoClick()">
+    <mat-icon>cancel</mat-icon>
+    <span>Cancel</span>
+  </button>
+  <button
+    mat-raised-button
+    color="primary"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+  >
+    <mat-icon>done</mat-icon>
+    <span>Yes, remove</span>
+  </button>
+</div>

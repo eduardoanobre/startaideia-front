@@ -1,0 +1,45 @@
+.div-message {
+  margin: 10px;
+}
+
+.message {
+  padding: 1em;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  border: 0 none;
+  color: #212121;
+}
+
+.warning {
+  background-color: #ffe399;
+}
+
+.info {
+  background-color: #b7d8b7;
+}
+
+.error {
+  background-color: #f8b7bd;
+}
+
+ul {
+  margin: 0 5px 0 15px;
+  padding: 0;
+  list-style-type: none;
+  text-align: left;
+  line-height: 1.5em;
+}
+
+$font-size: 40px;
+
+mat-icon {
+  font-size: $font-size;
+  height: $font-size;
+  width: $font-size;
+  align-self: center;
+}
+
+.div-icon {
+  display: inline-flex;
+}

@@ -1,0 +1,93 @@
+<div mat-dialog-content class="myapp-no-padding-dialog'">
+  <mat-toolbar color="accent">
+    <span class="span-icon">
+      <i class="material-icons info-icon">
+        add
+      </i>
+    </span>
+    <span class="span-label">Add new tool</span>
+  </mat-toolbar>
+
+  <form class="div-form" [formGroup]="form">
+    <mat-form-field>
+      <mat-label>Tool Name</mat-label>
+      <input
+        matInput
+        formControlName="title"
+        (keydown.enter)="enter('inputLink'); (false)"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Tool link</mat-label>
+      <input
+        matInput
+        formControlName="link"
+        placeholder="Tool link"
+        maxlength="100"
+        class="inputLink"
+        (keydown.enter)="enter('inputDescription'); (false)"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Tool description</mat-label>
+      <textarea
+        matInput
+        formControlName="description"
+        placeholder="Tool description"
+        maxlength="300"
+        class="inputDescription"
+        (keydown.enter)="enter('inputTags'); (false)"
+      ></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-chip-list #chipList aria-label="Tag selection">
+        <mat-chip
+          *ngFor="let tag of tags"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(tag)"
+        >
+          {{ tag }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="Tags..."
+          #tagInput
+          [formControl]="tagCtrl"
+          [matAutocomplete]="auto"
+          [matChipInputFor]="chipList"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="add($event)"
+          class="inputTags"
+        />
+      </mat-chip-list>
+      <mat-autocomplete
+        #auto="matAutocomplete"
+        (optionSelected)="selected($event)"
+      >
+        <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+          {{ tag }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+  <messages *ngIf="erro" type="error" summary="Erro!">
+    {{ erro }}
+  </messages>
+
+  <div class="dialog-actions">
+    <button
+      [disabled]="form.invalid"
+      mat-raised-button
+      color="primary"
+      (click)="salvar()"
+    >
+      <mat-icon>add</mat-icon>
+      <span>Add tool</span>
+    </button>
+  </div>
+</div>

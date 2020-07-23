@@ -1,0 +1,35 @@
+:host {
+  display: block;
+  background-color: #fce8e9;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.mat-card-error {
+  margin: 20px;
+}
+
+.div-erro {
+  display: contents;
+
+  h4 {
+    display: block;
+    background-color: #e95b64;
+    color: white;
+    padding: 3px 6px;
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+    font-weight: lighter;
+    padding: 20px;
+  }
+}
